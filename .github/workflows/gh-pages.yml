@@ -2,25 +2,18 @@ name: Deploy Site to Pages
 
 on:
   push:
-    paths-ignore:
-      - "LICENSE"
-      - "README.md"
-    branches:
-      - main
+    paths-ignore: ["LICENSE", "README.md"]
+    branches: [main]
   workflow_dispatch:
     inputs:
       hugoVersion:
         description: "Hugo Version (optional)"
         required: false
-        default: "0.122.0"   # 최신 Extended 버전
+        default: "0.122.0"
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+concurrency: { group: pages, cancel-in-progress: true }
 
-defaults:
-  run:
-    shell: bash
+defaults: { run: { shell: bash } }
 
 permissions:
   contents: read
@@ -30,46 +23,32 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: "0.122.0"
-    steps:
-      # 1) 수동 실행 시 버전 덮어쓰기
-      - name: Override Hugo version if input provided
-        if: ${{ github.event.inputs.hugoVersion }}
-        run: echo "HUGO_VERSION=${{ github.event.inputs.hugoVersion }}" >> $GITHUB_ENV
+    env: { HUGO_VERSION: "0.122.0" }
 
-      # 2) Hugo 설치
-      - name: Install Hugo CLI
+    steps:
+      # 1) Hugo 설치
+      - name: Install Hugo ${{ env.HUGO_VERSION }}
         run: |
           wget -O ${{ runner.temp }}/hugo.deb \
-            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb && \
+            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb &&
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
-      # 3) 소스 코드 체크아웃
-      - name: Checkout
-        uses: actions/checkout@v3
-        # ref: main          # ← 다른 브랜치가 필요하면 수정, 기본은 main
+      # 2) 코드 체크아웃 (v4)
+      - uses: actions/checkout@v4
 
-      # 4) GitHub Pages 기본 설정 로드
-      - name: Setup Pages
-        id: pages
+      # 3) Pages 메타데이터 로드 (v3 최신)
+      - id: pages
         uses: actions/configure-pages@v3
 
-      # 5) (옵션) 테마 서브모듈 초기화
-      - name: Init submodules
-        run: git submodule update --init --recursive
+      # 4) (옵션) 서브모듈 초기화
+      - run: git submodule update --init --recursive
 
-      # 6) 사이트 빌드
-      - name: Build with Hugo
-        run: |
-          hugo --verbose \
-               --baseURL "${{ steps.pages.outputs.base_url }}"
+      # 5) Hugo 빌드
+      - run: hugo --verbose --baseURL "${{ steps.pages.outputs.base_url }}"
 
-      # 7) 빌드 결과 업로드 (artifact)
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./public     # Hugo 출력 디렉터리
+      # 6) 빌드 결과 업로드 (v3 → 내부에서 upload-artifact v4 사용)
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: ./public }
 
   deploy:
     needs: build
@@ -77,7 +56,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      # 7) GitHub Pages에 배포 (v4 최신)
+      - id: deployment
+        uses: actions/deploy-pages@v4
