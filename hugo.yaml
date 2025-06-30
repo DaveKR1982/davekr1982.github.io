@@ -1,4 +1,39 @@
-baseURL: https://example.org/
-languageCode: en-us
-title: My New Hugo Site
-theme: ["PaperMod"]
+# ================= 기본 정보 =================
+baseURL: "https://davekr1982.github.io/"   # 앞뒤 큰따옴표 권장
+title: "DaveKR’s Blog"
+languageCode: "ko-kr"
+timeZone: "Asia/Seoul"                     # KST 기준
+
+theme: "PaperMod"                          # 배열 [] 말고 문자열 하나
+
+paginate: 10                               # 글 목록 페이지 당 글 수
+
+# ================= SEO & 기능 =================
+enableRobotsTXT: true                      # /robots.txt 자동 생성
+
+params:
+  env: "production"                        # SEO 메타·sitemap 자동 활성
+  defaultTheme: "auto"                     # 다크/라이트 자동 전환
+  ShowReadingTime: true
+  ShowShareButtons: true                   # SNS 공유 버튼
+  ShowPostNavLinks: true                   # 이전/다음 글 링크
+  dateFormat: "2006-01-02"
+  description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
+  keywords: ["Hugo", "PaperMod", "GPT", "Cloud"]
+
+  # 홈 화면을 프로필 카드로 – 원하면 켜세요
+  profileMode:
+    enabled: false
+    title: "안녕하세요!"
+    subtitle: "DaveKR의 기록 공간"
+    imageUrl: "images/avatar.png"          # static/images/avatar.png
+
+# ================= 메뉴 예시 =================
+menu:
+  main:
+    - name: 글 목록
+      url: /
+      weight: 1
+    - name: 태그
+      url: /tags/
+      weight: 2
