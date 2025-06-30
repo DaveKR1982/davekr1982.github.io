@@ -8,70 +8,53 @@ on:
     branches:
       - main
   workflow_dispatch:
-    # manual run
     inputs:
       hugoVersion:
-        description: "Hugo Version"
+        description: "Hugo Version (optional)"
         required: false
-        default: "0.112.4"
+        default: "0.122.0"   # 최신 Extended 버전
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
-# Default to bash
 defaults:
   run:
     shell: bash
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: "0.112.4"
+      HUGO_VERSION: "0.122.0"
     steps:
-      - name: Check version
+      # 1) 수동 실행 시 버전 덮어쓰기
+      - name: Override Hugo version if input provided
         if: ${{ github.event.inputs.hugoVersion }}
-        run: export HUGO_VERSION="${{ github.event.inputs.hugoVersion }}"
+        run: echo "HUGO_VERSION=${{ github.event.inputs.hugoVersion }}" >> $GITHUB_ENV
+
+      # 2) Hugo 설치
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          wget -O ${{ runner.temp }}/hugo.deb \
+            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb && \
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      # 3) 소스 코드 체크아웃
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: exampleSite
+        # ref: main          # ← 다른 브랜치가 필요하면 수정, 기본은 main
+
+      # 4) GitHub Pages 기본 설정 로드
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-      - name: Get Theme
-        run: git submodule update --init --recursive
-      # - name: Update theme to Latest commit
-      #   run: git submodule update --remote --merge
-      - name: Build with Hugo
-        run: |
-          hugo --verbose \
-            --baseURL ${{ steps.pages.outputs.base_url }}
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./public
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+
+      # 5) (옵션) 테마 서브모듈 초기화
+      - name: Init submodules
+        run: gi
