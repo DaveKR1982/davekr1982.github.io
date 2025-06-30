@@ -1,0 +1,72 @@
+{{- /* layouts/partials/share.html ─ share buttons (Kakao/Facebook/LinkedIn/Telegram) */ -}}
+{{- $pageurl := .Permalink | urlquery -}}
+{{- $title   := .Title     | urlquery -}}
+
+{{- /* 해시태그(공백 제거 후 쉼표 결합) */ -}}
+{{- $.Scratch.Set "tags" "" -}}
+{{- with .Params.Tags }}
+  {{- $tags := newScratch -}}
+  {{- range . }}{{ $tags.Add "tags" (slice (replaceRE "(\\s)" "" . )) }}{{- end -}}
+  {{- $.Scratch.Set "tags" (delimit ($tags.Get "tags") ",") -}}
+{{- end -}}
+
+{{- /* 사용자 정의 ShareButtons 배열이 있으면 그걸 쓰고, 없으면 기본 true */ -}}
+{{- $custom        := false -}}
+{{- $ShareButtons  := (.Param "ShareButtons") -}}
+{{- with $ShareButtons }}{{ $custom = true }}{{ end -}}
+
+<ul class="share-buttons">
+
+  {{- /* KakaoTalk */ -}}
+  {{- if (cond $custom (in $ShareButtons "kakao") true) }}
+  <li>
+    <a target="_blank" rel="noopener noreferrer"
+       aria-label="share {{ .Title | plainify }} on KakaoTalk"
+       href="https://sharer.kakao.com/talk/?url={{ $pageurl }}&amp;text={{ $title }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.02 2 1 6.22 1 11.22c0 3.05 1.93 5.78 4.84 7.42L4.28 23.6a.5.5 0 0 0 .73.57L10 21c.65.09 1.3.14 2 .14 5.98 0 11-4.22 11-9.22S17.98 2 12 2z"/>
+      </svg>
+    </a>
+  </li>
+  {{- end }}
+
+  {{- /* Facebook */ -}}
+  {{- if (cond $custom (in $ShareButtons "facebook") true) }}
+  <li>
+    <a target="_blank" rel="noopener noreferrer"
+       aria-label="share {{ .Title | plainify }} on Facebook"
+       href="https://facebook.com/sharer/sharer.php?u={{ $pageurl }}">
+      <svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor">
+        <path d="M449.4 0H62.6C28 0 0 28 0 62.6v386.8C0 484 28 512 62.6 512H256V313h-54v-77h54v-57c0-53.6 32.7-82.8 80.6-82.8 22.9 0 42.6 1.7 48.3 2.5v56h-33.1c-26 0-31.1 12.4-31.1 30.6v40h62.2l-8.1 77h-54v199h106.5c34.6 0 62.6-28 62.6-62.6V62.6C512 28 484 0 449.4 0z"/>
+      </svg>
+    </a>
+  </li>
+  {{- end }}
+
+  {{- /* LinkedIn */ -}}
+  {{- if (cond $custom (in $ShareButtons "linkedin") true) }}
+  <li>
+    <a target="_blank" rel="noopener noreferrer"
+       aria-label="share {{ .Title | plainify }} on LinkedIn"
+       href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $pageurl }}&amp;title={{ $title }}&amp;source={{ $pageurl }}">
+      <svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor">
+        <path d="M449.4 0H62.6C28 0 0 28 0 62.6v386.8C0 484 28 512 62.6 512h386.8c34.6 0 62.6-28 62.6-62.6V62.6C512 28 484 0 449.4 0zM160 424H96V192h64v232zm-32-264a37 37 0 110-74 37 37 0 010 74zm304 264h-64V312c0-26.6-9.5-44.7-33.1-44.7-18.1 0-28.9 12.2-33.7 24-1.7 4.2-2 10-2 15.8v116h-64V192h64v31.6c9.3-14.4 26-34.8 63.5-34.8 46.3 0 81.3 30.2 81.3 95.2V424z"/>
+      </svg>
+    </a>
+  </li>
+  {{- end }}
+
+  {{- /* Telegram */ -}}
+  {{- if (cond $custom (in $ShareButtons "telegram") true) }}
+  <li>
+    <a target="_blank" rel="noopener noreferrer"
+       aria-label="share {{ .Title | plainify }} on Telegram"
+       href="https://telegram.me/share/url?text={{ $title }}&amp;url={{ $pageurl }}">
+      <svg width="30" height="30" viewBox="2 2 28 28" fill="currentColor">
+        <path d="M26.5 2H5.5A3.5 3.5 0 002 5.5v21A3.5 3.5 0 005.5 30h21a3.5 3.5 0 003.5-3.5v-21A3.5 3.5 0 0026.5 2zm-3.4 8.2l-3 14.2c-.2.9-.8 1.1-1.5.7l-4.2-3.1-2 1.9c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.4-.1-.6-.6-.2l-10.4 6.5-4.5-1.4c-1-.3-1-1 .2-1.4l17.6-6.8c.8-.3 1.5.2 1.3 1z"/>
+      </svg>
+    </a>
+  </li>
+  {{- end }}
+
+</ul>
