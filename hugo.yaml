@@ -19,6 +19,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   hideFooter: false
+  comments: true                 # 댓글기능
   ShowSearch: true               # 🔍 돋보기 활성화
   FuseSearch: true               # 🔍 Fuse.js 기반 오프라인 검색
   dateFormat: "2006-01-02"
