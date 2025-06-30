@@ -1,35 +1,36 @@
-# ================= 기본 정보 =================
-baseURL: "https://davekr1982.github.io/"   # 앞뒤 큰따옴표 권장
+# ==================== 기본 정보 ====================
+baseURL: "https://davekr1982.github.io/"
 title: "DaveKR’s Blog"
 languageCode: "ko-kr"
-timeZone: "Asia/Seoul"                     # KST 기준
+timeZone: "Asia/Seoul"
+theme: "PaperMod"
+paginate: 10
 
-theme: "PaperMod"                          # 배열 [] 말고 문자열 하나
+# ==================== SEO 및 기타 기능 ====================
+enableRobotsTXT: true
+enableInlineShortcodes: true     # 짧은 코드 블럭 인라인 렌더링
 
-paginate: 10                               # 글 목록 페이지 당 글 수
-
-# ================= SEO & 기능 =================
-enableRobotsTXT: true                      # /robots.txt 자동 생성
-
+# ==================== PaperMod 파라미터 ====================
 params:
-  env: "production"                        # SEO 메타·sitemap 자동 활성
-  defaultTheme: "auto"                     # 다크/라이트 자동 전환
+  env: "production"
+  defaultTheme: "auto"
   ShowReadingTime: true
-  ShowShareButtons: true                   # SNS 공유 버튼
-  ShowPostNavLinks: true                   # 이전/다음 글 링크
-  hideFooter: false                        # 블로드 카운터
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  hideFooter: false
+  ShowSearch: true               # 🔍 돋보기 활성화
+  FuseSearch: true               # 🔍 Fuse.js 기반 오프라인 검색
   dateFormat: "2006-01-02"
   description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
-  keywords: ["Hugo", "PaperMod", "GPT", "Cloud"]
+  keywords: ["Hugo", "PaperMod", "GPT", "Cloud", "DaveKR"]
 
-  # 홈 화면을 프로필 카드로 – 원하면 켜세요
-  profileMode:
+  profileMode:                   # 홈에 프로필 카드 (원할 경우)
     enabled: false
     title: "안녕하세요!"
     subtitle: "DaveKR의 기록 공간"
-    imageUrl: "images/avatar.png"          # static/images/avatar.png
+    imageUrl: "images/avatar.png"
 
-# ================= 메뉴 예시 =================
+# ==================== 메뉴 구성 ====================
 menu:
   main:
     - name: 글 목록
@@ -38,3 +39,24 @@ menu:
     - name: 태그
       url: /tags/
       weight: 2
+
+# ==================== 검색용 출력 포맷 허용 ====================
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON     # ← Fuse.js 검색 위해 필요
+
+# ==================== 검색 전용 output 형식 지정 ====================
+outputFormats:
+  JSON:
+    mediaType: "application/json"
+    baseName: "index"           # /index.json 생성됨
+    isPlainText: true
+    notAlternative: true
+
+# ==================== 언어 설정 ====================
+languages:
+  ko:
+    languageName: "한국어"
+    weight: 1
