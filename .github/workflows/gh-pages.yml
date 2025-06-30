@@ -7,14 +7,14 @@ on:
   push:
     branches:
       - main
-    paths:                         # ➜ Hugo 사이트에만 반응
-      - 'content/**'
-      - 'static/**'
-      - 'themes/**'
-      - 'archetypes/**'
-      - 'assets/**'
-      - 'hugo.*'
-      - '.github/workflows/gh-pages.yml'
+    #paths:                         # ➜ Hugo 사이트에만 반응
+    #  - 'content/**'
+    #  - 'static/**'
+    #  - 'themes/**'
+    #  - 'archetypes/**'
+    #  - 'assets/**'
+    #  - 'hugo.*'
+    #  - '.github/workflows/gh-pages.yml'
 
   workflow_dispatch:               # ➜ 수동 실행 버튼
     inputs:
