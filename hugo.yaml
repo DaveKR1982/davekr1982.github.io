@@ -9,7 +9,7 @@ paginate: 10
 
 # ==================== SEO 및 기타 기능 ====================
 enableRobotsTXT: true
-enableInlineShortcodes: true     # 짧은 코드 블럭 인라인 렌더링
+enableInlineShortcodes: true
 
 # ==================== PaperMod 파라미터 ====================
 params:
@@ -19,18 +19,20 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   hideFooter: false
-  comments: true                 # 댓글기능
+  comments: true                 # 댓글 기능
   ShowSearch: true               # 🔍 돋보기 활성화
-  FuseSearch: true               # 🔍 Fuse.js 기반 오프라인 검색
-    assets:
-      customCSS:
-      - "css/extended/custom.css"   # 폰트 사이즈 CSS
-    something: "value"  # ← 값이 있어야 함
+  FuseSearch: true               # 🔍 Fuse.js 오프라인 검색
   dateFormat: "2006-01-02"
   description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
   keywords: ["Hugo", "PaperMod", "GPT", "Cloud", "DaveKR"]
 
-  profileMode:                   # 홈에 프로필 카드 (원할 경우)
+  # ── 맞춤 CSS 경로 (폰트 크기 등) ─────────────────────
+  assets:
+    customCSS:
+      - "css/extended/custom.css"
+
+  # ── 프로필 카드(옵션) ───────────────────────────────
+  profileMode:
     enabled: false
     title: "안녕하세요!"
     subtitle: "DaveKR의 기록 공간"
@@ -39,9 +41,9 @@ params:
 # ==================== 메뉴 구성 ====================
 menu:
   main:
-    - name: 검색         # ← 메뉴 이름
-      url: /search/      # ← 반드시 /search/
-      weight: 0          # ← 숫자가 작을수록 왼쪽(상단) 먼저
+    - name: 검색
+      url: /search/
+      weight: 0
     - name: 글 목록
       url: /
       weight: 1
@@ -49,19 +51,17 @@ menu:
       url: /tags/
       weight: 2
 
-
-# ==================== 검색용 출력 포맷 허용 ====================
+# ==================== 검색용 출력 포맷 ====================
 outputs:
   home:
     - HTML
     - RSS
-    - JSON     # ← Fuse.js 검색 위해 필요
+    - JSON        # Fuse.js 인덱스용
 
-# ==================== 검색 전용 output 형식 지정 ====================
 outputFormats:
   JSON:
     mediaType: "application/json"
-    baseName: "index"           # /index.json 생성됨
+    baseName: "index"   # /index.json
     isPlainText: true
     notAlternative: true
 
