@@ -1,0 +1,12 @@
+/* 표 텍스트 자동 줄바꿈 + 왼쪽 정렬 + 셀 여백 */
+.post-content table {
+  table-layout: auto;         /* 기본값 fixed → auto 로 변경 */
+  word-break: break-word;     /* 영어 단어/URL 줄바꿈 허용 */
+  white-space: normal;        /* 줄바꿈 허용 */
+}
+
+.post-content th, .post-content td {
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
