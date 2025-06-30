@@ -1,0 +1,10 @@
+/* PC 화면에서만 전체 폰트 사이즈 살짝 줄이기 */
+@media (min-width: 769px) {
+  :root {
+    --content-font-size: 0.95rem;  /* 기본 1rem → 약 15.2px */
+  }
+
+  h1 { font-size: 1.65rem; }  /* 기본 1.75 */
+  h2 { font-size: 1.35rem; }  /* 기본 1.5  */
+  h3 { font-size: 1.15rem; }  /* 기본 1.25 */
+}
