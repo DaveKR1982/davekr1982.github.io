@@ -1,0 +1,18 @@
+/* 데스크탑(폭≥768px)에서 본문·제목 폰트 크기 ↓ */
+@media (min-width: 768px) {
+
+  /* 본문 기본 */
+  body,
+  .post-content {
+    font-size: 15px !important;   /* 18→15px  확실히 덮어쓰기 */
+    line-height: 1.55;
+  }
+
+  /* 제목도 함께 ↓   */
+  .post-content h1 { font-size: 1.6rem !important; }
+  .post-content h2 { font-size: 1.3rem !important; }
+  .post-content h3 { font-size: 1.1rem !important; }
+
+  /* 페이지 상단 단일 제목(옵션) */
+  .single-title    { font-size: 1.8rem !important; }
+}
