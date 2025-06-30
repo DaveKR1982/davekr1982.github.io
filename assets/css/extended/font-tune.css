@@ -1,18 +1,25 @@
-/* 데스크탑(폭≥768px)에서 본문·제목 폰트 크기 ↓ */
+/* ──────────────────────────────────────────────
+   font-tune.css  –  데스크탑(폭 ≥ 768px) 전용
+   • 본문 기본 폰트 18px → 15px
+   • 제목 h1 / h2 / h3 폰트도 함께 축소
+   • line-height 조정
+   • !important 로 테마 기본값을 확실히 덮어씀
+   ────────────────────────────────────────────── */
+
 @media (min-width: 768px) {
 
-  /* 본문 기본 */
+  /* 본문 기본 글꼴 크기 ↓ */
   body,
   .post-content {
-    font-size: 15px !important;   /* 18→15px  확실히 덮어쓰기 */
+    font-size: 15px !important;   /* 기본 18px */
     line-height: 1.55;
   }
 
-  /* 제목도 함께 ↓   */
-  .post-content h1 { font-size: 1.6rem !important; }
-  .post-content h2 { font-size: 1.3rem !important; }
-  .post-content h3 { font-size: 1.1rem !important; }
+  /* 본문 내부 헤딩 크기 ↓ */
+  .post-content h1 { font-size: 1.6rem !important; }  /* 기존 1.75rem */
+  .post-content h2 { font-size: 1.35rem !important; } /* 기존 1.5rem  */
+  .post-content h3 { font-size: 1.10rem !important; } /* 기존 1.25rem */
 
-  /* 페이지 상단 단일 제목(옵션) */
-  .single-title    { font-size: 1.8rem !important; }
+  /* 페이지 상단 단일 제목(옵션) ↓ */
+  .single-title    { font-size: 1.70rem !important; } /* 필요 없으면 삭제 */
 }
