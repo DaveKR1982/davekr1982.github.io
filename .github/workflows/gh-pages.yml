@@ -57,4 +57,27 @@ jobs:
 
       # 5) (옵션) 테마 서브모듈 초기화
       - name: Init submodules
-        run: gi
+        run: git submodule update --init --recursive
+
+      # 6) 사이트 빌드
+      - name: Build with Hugo
+        run: |
+          hugo --verbose \
+               --baseURL "${{ steps.pages.outputs.base_url }}"
+
+      # 7) 빌드 결과 업로드 (artifact)
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public     # Hugo 출력 디렉터리
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
