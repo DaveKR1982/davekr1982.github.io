@@ -1,63 +1,95 @@
-name: Deploy Site to Pages
+name: Deploy Hugo Site to Pages
 
+###############################################################################
+# 1. 언제 실행?
+###############################################################################
 on:
   push:
-    paths-ignore: ["LICENSE", "README.md"]
     branches: [main]
-  workflow_dispatch:
+
+    # ⚡ Hugo 사이트와 관련된 파일이 바뀔 때만 실행
+    paths:
+      - 'content/**'                    # 글‧페이지
+      - 'static/**'                     # 이미지‧정적 자산
+      - 'themes/**'                     # 테마(서브모듈)
+      - 'archetypes/**'
+      - 'assets/**'
+      - 'hugo.*'                        # hugo.toml / hugo.yaml / hugo.json
+      - '.github/workflows/gh-pages.yml'
+    # 빌드를 돌 필요 없는 파일
+    paths-ignore:
+      - 'LICENSE'
+      - 'README.md'
+
+  workflow_dispatch:                   # 수동 실행 버튼
     inputs:
       hugoVersion:
         description: "Hugo Version (optional)"
         required: false
-        default: "0.122.0"
+        default: "0.122.0"             # 최신 Extended 버전
 
+###############################################################################
+# 2. 공통 설정
+###############################################################################
 concurrency: { group: pages, cancel-in-progress: true }
-
-defaults: { run: { shell: bash } }
+defaults:    { run: { shell: bash } }
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  pages:    write
+  id-token: write                     # deploy-pages OIDC
 
+###############################################################################
+# 3. Jobs
+###############################################################################
 jobs:
+  ###########################################################################
+  # 3-1. BUILD
+  ###########################################################################
   build:
     runs-on: ubuntu-latest
     env: { HUGO_VERSION: "0.122.0" }
 
     steps:
-      # 1) Hugo 설치
+      # Hugo 버전 덮어쓰기(수동 실행 시)
+      - name: Override Hugo version if input provided
+        if: ${{ github.event.inputs.hugoVersion }}
+        run: echo "HUGO_VERSION=${{ github.event.inputs.hugoVersion }}" >> $GITHUB_ENV
+
+      # Hugo 설치
       - name: Install Hugo ${{ env.HUGO_VERSION }}
         run: |
           wget -O ${{ runner.temp }}/hugo.deb \
             https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb &&
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
-      # 2) 코드 체크아웃 (v4)
+      # 코드 체크아웃
       - uses: actions/checkout@v4
 
-      # 3) Pages 메타데이터 로드 (v3 최신)
+      # Pages 메타데이터 준비
       - id: pages
         uses: actions/configure-pages@v3
 
-      # 4) (옵션) 서브모듈 초기화
+      # (옵션) 테마 서브모듈 초기화
       - run: git submodule update --init --recursive
 
-      # 5) Hugo 빌드
+      # Hugo 빌드
       - run: hugo --verbose --baseURL "${{ steps.pages.outputs.base_url }}"
 
-      # 6) 빌드 결과 업로드 (v3 → 내부에서 upload-artifact v4 사용)
+      # 빌드 산출물 업로드 (v3 → upload-artifact v4 내부 사용)
       - uses: actions/upload-pages-artifact@v3
         with: { path: ./public }
 
+  ###########################################################################
+  # 3-2. DEPLOY
+  ###########################################################################
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url:  ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # 7) GitHub Pages에 배포 (v4 최신)
       - id: deployment
         uses: actions/deploy-pages@v4
