@@ -32,9 +32,9 @@ params:
   # ── 맞춤 CSS 경로 (폰트 크기 등) ─────────────────────
   assets:
     customCSS:
-      - "css/extended/custom.css"
       - "css/extended/table-tune.css"
       - "css/extended/table-style.css"
+      - "css/extended/font-tune.css" 
 
   # ── 프로필 카드(옵션) ───────────────────────────────
   profileMode:
