@@ -2,6 +2,8 @@
 title: "Hello, DaveKR!"
 date: 2023-07-01T09:00:00+09:00
 draft: false
+comments: true        # ← giscus 댓글 활성화
+tags: ["Hugo","PaperMod","GPT"]
 ---
 
 ## 👋 첫 인사
