@@ -26,6 +26,9 @@ params:
   description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
   keywords: ["Hugo", "PaperMod", "GPT", "Cloud", "DaveKR"]
 
+  ShowShareButtons: true
+  ShareButtons: ["kakao", "facebook", "linkedin", "telegram"]
+
   # ── 맞춤 CSS 경로 (폰트 크기 등) ─────────────────────
   assets:
     customCSS:
