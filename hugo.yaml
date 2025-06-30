@@ -34,6 +34,7 @@ params:
     customCSS:
       - "css/extended/custom.css"
       - "css/extended/table-tune.css"
+      - "css/extended/table-style.css"
 
   # ── 프로필 카드(옵션) ───────────────────────────────
   profileMode:
