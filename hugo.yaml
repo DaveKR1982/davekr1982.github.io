@@ -34,12 +34,16 @@ params:
 # ==================== 메뉴 구성 ====================
 menu:
   main:
+    - name: 검색         # ← 메뉴 이름
+      url: /search/      # ← 반드시 /search/
+      weight: 0          # ← 숫자가 작을수록 왼쪽(상단) 먼저
     - name: 글 목록
       url: /
       weight: 1
     - name: 태그
       url: /tags/
       weight: 2
+
 
 # ==================== 검색용 출력 포맷 허용 ====================
 outputs:
