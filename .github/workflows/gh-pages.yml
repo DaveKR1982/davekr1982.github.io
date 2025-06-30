@@ -1,87 +1,97 @@
+###############################################################################
+#  GitHub Actions : Hugo → GitHub Pages (artifact 방식)
+###############################################################################
 name: Deploy Hugo Site to Pages
 
-###############################################################################
-# 1. 언제 실행?
-###############################################################################
 on:
+  # main 브랜치에 push 될 때,
+  # 지정한 경로(patterns)만 변경되면 워크플로 실행
   push:
-    branches: [main]
-
-    # ⚡ Hugo 사이트와 관련된 파일이 바뀔 때만 실행
+    branches: [ main ]
     paths:
-      - 'content/**'                    # 글‧페이지
-      - 'static/**'                     # 이미지‧정적 자산
-      - 'themes/**'                     # 테마(서브모듈)
+      # ── Hugo 사이트 소스 ──────────────────────────────────────────────
+      - 'content/**'
+      - 'static/**'
+      - 'themes/**'
       - 'archetypes/**'
       - 'assets/**'
-      - 'hugo.*'                        # hugo.toml / hugo.yaml / hugo.json
+      - 'hugo.*'                       # hugo.toml / hugo.yaml / hugo.json
+      # ── 워크플로 파일 자체 변경 ───────────────────────────────────────
       - '.github/workflows/gh-pages.yml'
-    # 빌드를 돌 필요 없는 파일
-    paths-ignore:
-      - 'LICENSE'
-      - 'README.md'
+      # ── 변경돼도 *무시*할 파일(느낌표 `!`) ────────────────────────────
+      - '!LICENSE'
+      - '!README.md'
 
-  workflow_dispatch:                   # 수동 실행 버튼
+  # GitHub UI 에서 수동 실행 버튼
+  workflow_dispatch:
     inputs:
       hugoVersion:
         description: "Hugo Version (optional)"
         required: false
-        default: "0.122.0"             # 최신 Extended 버전
+        default: "0.122.0"             # ← 필요 시 최신 Extended 로 수정
 
 ###############################################################################
-# 2. 공통 설정
+#  기본 설정
 ###############################################################################
-concurrency: { group: pages, cancel-in-progress: true }
-defaults:    { run: { shell: bash } }
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
+# GITHUB_TOKEN 권한
 permissions:
   contents: read
   pages:    write
-  id-token: write                     # deploy-pages OIDC
+  id-token: write
 
 ###############################################################################
-# 3. Jobs
+#  Jobs
 ###############################################################################
 jobs:
   ###########################################################################
-  # 3-1. BUILD
+  # 1) BUILD ─ Hugo 빌드 + artifact 업로드
   ###########################################################################
   build:
     runs-on: ubuntu-latest
-    env: { HUGO_VERSION: "0.122.0" }
+    env:
+      HUGO_VERSION: "0.122.0"
 
     steps:
-      # Hugo 버전 덮어쓰기(수동 실행 시)
+      # A. (선택) 수동 실행 시 Hugo 버전 덮어쓰기
       - name: Override Hugo version if input provided
         if: ${{ github.event.inputs.hugoVersion }}
         run: echo "HUGO_VERSION=${{ github.event.inputs.hugoVersion }}" >> $GITHUB_ENV
 
-      # Hugo 설치
+      # B. Hugo CLI 설치
       - name: Install Hugo ${{ env.HUGO_VERSION }}
         run: |
           wget -O ${{ runner.temp }}/hugo.deb \
             https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb &&
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
-      # 코드 체크아웃
+      # C. 소스 코드 체크아웃
       - uses: actions/checkout@v4
 
-      # Pages 메타데이터 준비
+      # D. Pages 메타데이터 로드
       - id: pages
         uses: actions/configure-pages@v3
 
-      # (옵션) 테마 서브모듈 초기화
+      # E. (선택) 서브모듈(테마) 초기화
       - run: git submodule update --init --recursive
 
-      # Hugo 빌드
+      # F. Hugo 빌드
       - run: hugo --verbose --baseURL "${{ steps.pages.outputs.base_url }}"
 
-      # 빌드 산출물 업로드 (v3 → upload-artifact v4 내부 사용)
+      # G. 빌드 결과를 Pages 아티팩트(v3)로 업로드
       - uses: actions/upload-pages-artifact@v3
-        with: { path: ./public }
+        with:
+          path: ./public               # ← Hugo 출력 디렉터리
 
   ###########################################################################
-  # 3-2. DEPLOY
+  # 2) DEPLOY ─ 아티팩트를 GitHub Pages 환경으로 배포
   ###########################################################################
   deploy:
     needs: build
@@ -92,4 +102,4 @@ jobs:
 
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-p
