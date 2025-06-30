@@ -1,54 +1,73 @@
-/* font-tune.css */
+/* ───────────────────────────────────────────
+   font-tune.css  –  공통 + PC + 모바일 조정
+   • 모바일(≤768 px) : 가독성 유지, 약간 여백 확대
+   • 데스크탑(≥769 px) : 폰트·제목·표 모두 축소 & 정돈
+   ─────────────────────────────────────────── */
 
-/* PC 화면 기준 기본 폰트 크기 축소 */
+/* 📱 모바일(≤768 px) 전용 ------------------- */
+@media (max-width: 768px) {
+
+  /* 본문 기본 */
+  body,
+  .post-content {
+    font-size: 1rem;          /* 16 px (기본 유지) */
+    line-height: 1.7;
+  }
+
+  /* 제목은 살짝만 축소 */
+  .post-content h1 { font-size: 1.35rem; } /* ≈ 22 px */
+  .post-content h2 { font-size: 1.15rem; } /* ≈ 18 px */
+  .post-content h3 { font-size: 1.00rem; } /* ≈ 16 px */
+
+  /* 상단 싱글 타이틀 */
+  .single-title { font-size: 1.5rem; }     /* ≈ 24 px */
+
+  /* 표 : 좌우 스크롤 + 패딩 최소화 */
+  table {
+    font-size: 0.95rem;
+    overflow-x: auto;
+    display: block;        /* 모바일에서 가로 스크롤 허용 */
+  }
+  table th, table td {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* 💻 데스크탑(≥769 px) 전용 ----------------- */
 @media (min-width: 769px) {
-  :root {
-    --content-font-size: 0.88rem;  /* 기본 1rem → 약 14.1px */
+
+  /* 본문 기본 폰트 ↓ */
+  body,
+  .post-content {
+    font-size: 0.94rem !important;   /* ≈ 15 px */
+    line-height: 1.55;
   }
 
-  body {
-    font-size: var(--content-font-size);
-    line-height: 1.65;
-  }
+  /* 본문 헤딩 ↓ */
+  .post-content h1 { font-size: 1.55rem !important; }
+  .post-content h2 { font-size: 1.30rem !important; }
+  .post-content h3 { font-size: 1.10rem !important; }
 
-  h1 {
-    font-size: 1.55rem; /* 약 24.8px → 살짝 축소 */
-    font-weight: 700;
-  }
+  /* 상단 타이틀 ↓ */
+  .single-title { font-size: 1.8rem !important; }
 
-  h2 {
-    font-size: 1.3rem;  /* 약 20.8px */
-    font-weight: 600;
-  }
+  /* TOC 글씨 살짝 축소 */
+  .toc ul li { font-size: 0.9rem; }
 
-  h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-
-  h4, h5, h6 {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  /* 글 제목 (타이틀 영역) 별도 조정 */
-  .single-title {
-    font-size: 1.8rem !important; /* 기본보다 살짝 작게 (ex: 원래 2.25rem) */
-    font-weight: 700;
-  }
-
-  /* 목차 폰트 살짝 작게 */
-  .toc ul li {
-    font-size: 0.9rem;
-  }
-
-  /* 표 간격 조정 */
+  /* 표 : 여백·선·폰트 통일 */
   table {
     font-size: 0.9rem;
-    line-height: 1.5;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
   }
-
   table th, table td {
-    padding: 0.5em 1em;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+  }
+  table th {
+    background:#f7f7f7;
   }
 }
