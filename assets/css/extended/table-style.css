@@ -1,0 +1,17 @@
+.post-content table {
+  width: 100%;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  table-layout: auto;
+  word-break: break-word;
+  white-space: normal;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.post-content th, .post-content td {
+  padding: 10px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+}
