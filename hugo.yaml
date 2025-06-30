@@ -23,7 +23,8 @@ params:
   ShowSearch: true               # 🔍 돋보기 활성화
   FuseSearch: true               # 🔍 Fuse.js 기반 오프라인 검색
     assets:
-    customCSS: ["css/extended/custom.css"]
+      customCSS:
+      - "css/extended/custom.css"   # 폰트 사이즈 CSS
   dateFormat: "2006-01-02"
   description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
   keywords: ["Hugo", "PaperMod", "GPT", "Cloud", "DaveKR"]
