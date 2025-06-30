@@ -17,6 +17,7 @@ params:
   ShowReadingTime: true
   ShowShareButtons: true                   # SNS 공유 버튼
   ShowPostNavLinks: true                   # 이전/다음 글 링크
+  hideFooter: false                        # 블로드 카운터
   dateFormat: "2006-01-02"
   description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
   keywords: ["Hugo", "PaperMod", "GPT", "Cloud"]
