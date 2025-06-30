@@ -1,10 +1,16 @@
-/* PC 화면에서만 전체 폰트 사이즈 살짝 줄이기 */
-@media (min-width: 769px) {
+/* PC(폭 ≥ 769px)에서만 제목·본문 폰트 줄이기 */
+@media (min-width: 768px) {
+
+  /* 본문 기본 글꼴 */
   :root {
-    --content-font-size: 0.95rem;  /* 기본 1rem → 약 15.2px */
+    --content-font-size: 0.95rem;   /* 1rem → 15.2 px */
   }
 
-  h1 { font-size: 1.65rem; }  /* 기본 1.75 */
-  h2 { font-size: 1.35rem; }  /* 기본 1.5  */
-  h3 { font-size: 1.15rem; }  /* 기본 1.25 */
+  /* 본문 안의 헤딩 크기 ↓ */
+  .post-content h1 { font-size: 1.6rem !important; }  /* 기본 1.75 */
+  .post-content h2 { font-size: 1.3rem !important; }  /* 기본 1.5  */
+  .post-content h3 { font-size: 1.1rem !important; }  /* 기본 1.25 */
+
+  /* 상단 페이지 제목(싱글 타이틀)도 함께 줄이려면 ↓ */
+  .single-title { font-size: 1.8rem !important; }      /* 필요 시 */
 }
