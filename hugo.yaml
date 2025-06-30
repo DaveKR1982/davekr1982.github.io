@@ -2,6 +2,7 @@
 baseURL: "https://davekr1982.github.io/"
 title: "DaveKR’s Blog"
 languageCode: "ko-kr"
+defaultContentLanguage: "ko"
 timeZone: "Asia/Seoul"
 theme: "PaperMod"
 paginate: 10
