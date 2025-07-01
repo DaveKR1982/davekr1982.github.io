@@ -1,6 +1,6 @@
 # ==================== 기본 정보 ====================
-baseURL: "https://www.gpt2talk.com/"
-title: "DaveKR’s Blog"
+baseURL: "https://www.gpt2talk.com/"      # ✅ 기존 도메인 그대로 유지
+title: "LazyNomad"
 languageCode: "ko-kr"
 defaultContentLanguage: "ko"
 timeZone: "Asia/Seoul"
@@ -19,28 +19,29 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   hideFooter: false
-  comments: true                 # 댓글 기능
-  ShowSearch: true               # 🔍 돋보기 활성화
-  FuseSearch: true               # 🔍 Fuse.js 오프라인 검색
+  comments: true
+  ShowSearch: true
+  FuseSearch: true
   dateFormat: "2006-01-02"
-  description: "클라우드·여행·재테크를 기록하는 DaveKR의 블로그"
-  keywords: ["Hugo", "PaperMod", "GPT", "Cloud", "DaveKR"]
 
-  ShowShareButtons: true
+  # 💬 새 브랜드 설명·키워드
+  description: "게으르지만 똑똑하게 – 디지털 노마드의 루틴 해킹 실험실"
+  keywords: ["LazyNomad", "루틴 해킹", "디지털 노마드", "호텔 할인", "GPT"]
+
   ShareButtons: ["kakao", "facebook", "linkedin", "telegram"]
 
-  # ── 맞춤 CSS 경로 (폰트 크기 등) ─────────────────────
+  # ── 맞춤 CSS 경로 ─────────────────────
   assets:
     customCSS:
       - "css/extended/table-tune.css"
       - "css/extended/table-style.css"
-      - "css/extended/font-tune.css" 
+      - "css/extended/font-tune.css"
 
-  # ── 프로필 카드(옵션) ───────────────────────────────
+  # ── 프로필 카드 ───────────────────────
   profileMode:
     enabled: false
     title: "안녕하세요!"
-    subtitle: "DaveKR의 기록 공간"
+    subtitle: "LazyNomad의 루틴 해킹 실험실"
     imageUrl: "images/avatar.png"
 
 # ==================== 메뉴 구성 ====================
@@ -66,7 +67,7 @@ outputs:
 outputFormats:
   JSON:
     mediaType: "application/json"
-    baseName: "index"   # /index.json
+    baseName: "index"
     isPlainText: true
     notAlternative: true
 
@@ -76,8 +77,8 @@ languages:
     languageName: "한국어"
     weight: 1
 
-# ==================== Goldmark (HTML 허용) ==================== 🔸
+# ==================== Goldmark (HTML 허용) ====================
 markup:
   goldmark:
     renderer:
-      unsafe: true        # HTML 태그 필터링 해제
+      unsafe: true
