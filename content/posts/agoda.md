@@ -7,6 +7,9 @@ comments: true
 toc: true
 ---
 
+<!-- ✅ 0단계: 아무 설정 없이 검색했을 때 '비싼' 가격 -->
+![Agoda 직접 검색 가격](/images/agoda/00_agoda_direct_price.png)
+
 ## 🛫 프롤로그 – 그 밤, 나는 바보였다
 
 방콕 호텔을 하나 예약하려다 말았다.  
@@ -17,24 +20,26 @@ toc: true
 
 ---
 
-## 1️⃣ 호텔명부터 확보하자
+## ✨ DaveKR의 실전 루틴
 
-그날의 주인공은 바로 이 녀석이었다.
+1. **호텔 이름 확보 → 시크릿 창 구글 검색**으로 ‘기본가’ 확인  
+2. **카카오페이 × 아고다** 전용 페이지에서 동일 호텔 재검색  
+3. **페이코 × 아고다** 전용 페이지에서도 재검색  
+4. **Agoda Scanner**로 모든 경로(CID) 한눈 비교 → 최종 선택  
 
-> Hotel Icon Bangkok Sukhumvit 2
+> 3박 이상이면 이 루틴으로 **10-20 만 원** 절약도 흔합니다.
 
-나는 가장 먼저 이 이름을 복사해두고, 시크릿 브라우저를 열었다.
+---
 
-> 이유?  
-> 👉 쿠키, 히스토리, 로그인 상태 다 제거된 진짜 ‘처음 보는 손님’이 되기 위해서.
+## 1️⃣ 구글 검색(시크릿 모드)로 첫 가격 확보
 
-📷  
-<img src="/images/agoda/01_google_search_agoda.png" alt="구글 검색 결과" width="90%">
+호텔명 + 날짜를 구글 시크릿창에 검색하고, 광고(AD) 아닌 아고다 링크를 클릭한다.
 
-구글에서 검색하고, **광고가 아닌 순수 아고다 링크**를 클릭한다.
+![구글 검색 결과](/images/agoda/01_google_search_agoda.png)
 
-📷  
-<img src="/images/agoda/02_agoda_google_price.png" alt="첫 번째 경유 가격" width="90%">
+<br>
+
+![구글 경유 첫 가격](/images/agoda/02_agoda_google_price.png)
 
 그 순간 가격은 **₩90,000대**.  
 오, 괜찮네?
@@ -43,86 +48,27 @@ toc: true
 
 ## 2️⃣ 하지만… 카카오페이가 날 부른다
 
-나는 한 번 더 검색을 돌렸다.  
-이번엔 **카카오페이 제휴 아고다 페이지**.
+이번엔 **카카오페이 × 아고다** 전용 페이지로 이동.
 
 [🔗 agoda.com/ko-kr/kakaopaypromo](https://www.agoda.com/ko-kr/kakaopaypromo)
 
-딱 들어가자마자, 이렇게 노랗게 나를 반겼다.
+![카카오페이 메인](/images/agoda/03_agoda_kakaopay_main.png)
 
-📷  
-<img src="/images/agoda/03_agoda_kakaopay_main.png" alt="카카오페이 메인" width="90%">
+<br>
 
-동일 호텔 검색 → 가격이 **₩66,000**까지 내려간다?
+![카카오페이 적용 가격](/images/agoda/04_agoda_kakaopay_price.png)
 
-📷  
-<img src="/images/agoda/04_agoda_kakaopay_price.png" alt="카카오페이 가격" width="90%">
-
-오케이. 여기서 이미 **2만 원 차이**. 하지만 끝이 아니다.
+가격이 **₩66,000**까지 떨어졌다.  
+이미 **2만 원 차이**인데… 끝이 아니다.
 
 ---
 
 ## 3️⃣ 페이코도 뒤처질 수 없지
 
-나는 마지막으로 페이코 제휴 페이지로 들어간다.
-
 [🔗 agoda.com/ko-kr/payco](https://www.agoda.com/ko-kr/payco)
 
-📷  
-<img src="/images/agoda/05_agoda_payco_price.png" alt="페이코 메인" width="90%">
+![페이코 메인](/images/agoda/05_agoda_payco_price.png)
 
-결과?  
-이 녀석도 **₩66,000대**까지 내려온다.  
-약간의 조건 차이, 환불 불가 or 취소 가능 여부에 따라 차이는 있음.
+<br>
 
-📷  
-<img src="/images/agoda/06_agoda_payco_price.png" alt="페이코 적용 가격" width="90%">
-
----
-
-## 🔍 그리고 진짜 핵심, Agoda Scanner
-
-“이쯤 되면 뭐가 최선인지를 한눈에 보고 싶다.”
-
-그래서 꺼낸 마지막 비책은 바로 **Agoda Scanner**.  
-<https://agodascanner.com> ← 이런 건 즐겨찾기 해두자.
-
-📷  
-<img src="/images/agoda/07_agoda_scanner_main.png" alt="스캐너 메인" width="85%">
-
-호텔 URL 붙여넣고 [변환] 누르면?  
-모든 경로의 가격이 **한눈에 촤르륵.**
-
-📷  
-<img src="/images/agoda/08_agoda_scanner_result.png" alt="스캐너 결과" width="85%">
-
-이걸로 마무리 체크까지 완료.
-
----
-
-## ✅ 내가 실전에서 쓰는 루틴 요약
-
-| 단계 | 액션 | 왜 하는가? |
-|------|------|-------------|
-| ① 구글 시크릿 검색 | 광고 제외 아고다 링크 클릭 | CID: 구글 |
-| ② 카카오페이 경유 | 전용 할인 최대 11% | CID: 카카오페이 |
-| ③ 페이코 경유 | 전용 할인 7~10% | CID: 페이코 |
-| ④ Agoda Scanner | 전 경로 실시간 가격 비교 | 최저가를 눈으로 확인 |
-
----
-
-## 🧾 결론 – “게으른 자는 더 비싼 가격을 지불한다”
-
-그날 밤, 나는 결국 **₩66,000**짜리 방을 예약했다.  
-하지만 아까 처음 봤던 그 ₩90,000짜리 가격으로 그냥 예약했다면?
-
-> 👉 나는 3박 기준으로 **7만 원 이상**을 버리는 셈이었다.
-
-아고다를 '그냥' 쓰는 사람은 많다.  
-하지만 **경로, 쿠키, CID, 프로모션**까지 계산해서 쓰는 사람은 많지 않다.  
-이제, 당신도 알게 됐다.  
-오늘 밤 아고다를 예약할 예정이라면, 이 루틴을 한 번만 따라해보라.  
-**다음날 아침, 당신의 통장도 미소 지을 것이다.**
-
----
-
+![페이코 적용 가격](/images/agoda/06_agoda_payco_price.png_)
