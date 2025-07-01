@@ -75,3 +75,9 @@ languages:
   ko:
     languageName: "한국어"
     weight: 1
+
+# ==================== Goldmark (HTML 허용) ==================== 🔸
+markup:
+  goldmark:
+    renderer:
+      unsafe: true        # HTML 태그 필터링 해제
