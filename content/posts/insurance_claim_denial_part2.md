@@ -4,8 +4,8 @@ description: "GPT를 활용한 국민신문고 및 금감원 분쟁조정 대응
 author: LazyNomad
 tags: ["AI 민원작성", "국민신문고", "금감원 분쟁조정", "실손보험", "보험금 부지급"]
 slug: insurance-denial-gpt-claim-2
-date: 2025-07-03T09:30:00+09:00
-lastmod: 2025-07-03T09:30:00+09:00
+date: 2025-07-02T09:30:00+09:00
+lastmod: 2025-07-02T09:30:00+09:00
 draft: false
 ---
 
