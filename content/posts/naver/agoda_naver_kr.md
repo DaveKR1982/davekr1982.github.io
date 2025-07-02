@@ -15,7 +15,7 @@ lang: ko
 
 ## ✨ DaveKR 실전 4단계 루틴
 
-![전략 플로우](/images/agoda/price-hack-flow.png "전체 흐름")
+![전략 플로우](/static/images/agoda/00_agoda_direct_price.png "전체 흐름")
 
 | 단계 | 행동 | 핵심 이유 |
 |------|------|-----------|
@@ -24,50 +24,49 @@ lang: ko
 | 3 | **페이코×아고다** 프로모 페이지 | 즉시 7–10% 할인 + 카드 적립 |
 | 4 | **Agoda Scanner** CID 비교 | 20여 경로 동시에 최저가 조회 |
 
-> 3박 이상이면 **7만~20만 원** 절약도 흔합니다!
-
 ---
 
 ## 1️⃣ 구글 시크릿으로 첫 가격 체크
 
-![구글 첫 가격](/images/agoda/google-first-click.png)  
-첫 가격: **₩90,000/박**
+![검색 결과](/static/images/agoda/01_google_search_agoda.png)  
+![첫 가격](/static/images/agoda/02_agoda_google_price.png)
 
 ---
 
-## 2️⃣ 카카오페이로 11% 컷
+## 2️⃣ 카카오페이로 11% 할인
 
-![카카오페이 가격](/images/agoda/kakaopay-banner.png)  
-→ **₩66,000/박**까지 하락
-
----
-
-## 3️⃣ 페이코도 한 번 더
-
-![페이코 가격](/images/agoda/payco-banner.png)  
-조건 따라 추가 1–2 % 더 저렴
+![카카오 메인](/static/images/agoda/03_agoda_kakaopay_main.png)  
+![카카오 할인 가격](/static/images/agoda/04_agoda_kakaopay_price.png)
 
 ---
 
-## 4️⃣ Scanner로 CID 최종 비교
+## 3️⃣ 페이코 즉시 할인
 
-![Scanner 결과](/images/agoda/scanner-result.png)
+![페이코1](/static/images/agoda/05_agoda_payco_price.png)  
+![페이코2](/static/images/agoda/06_agoda_payco_price.png)
 
 ---
 
-### ✅ 체크리스트 한눈 정리
+## 4️⃣ Agoda Scanner로 CID 비교
 
-| 단계 | 포인트 | 체크 |
+![Scanner 메인](/static/images/agoda/07_agoda_scanner_main.png)  
+![Scanner 결과](/static/images/agoda/08_agoda_scanner_result.png)
+
+---
+
+### ✅ 체크리스트 요약
+
+| 단계 | 포인트 | 확인 |
 |------|--------|------|
-| 시크릿 | ‘AD CID’ 제거 | URL 확인 |
-| 카카오페이 | 11 % + 등급 | 가격 ↓10 % 이상? |
-| 페이코 | 즉시 할인 | 카카오 대비? |
-| Scanner | CID 격차 | 최저가 링크 선택 |
+| 시크릿 | AD CID 제거 | URL 확인 |
+| 카카오페이 | 11% 할인 | 가격 ↓ |
+| 페이코 | 카드별 즉시 할인 | 비교 필수 |
+| Scanner | CID 간 격차 | 최저가 선택 |
 
 ---
 
-## 🔚 결론 — “게으르면 돈이 샌다”
+## 🔚 마무리 — 7만 원 아꼈습니다
 
-> 처음 가격에 바로 결제? **3박 7만 원** 손해 볼 뻔!  
+> 원래 ₩90,000/박… 실제는 ₩66,000/박.  
 > **시크릿 → 카카오페이 → 페이코 → Scanner**  
-> 딱 이 순서만 기억하세요. 내 통장이 웃습니다 😎
+> 내 통장이 웃는 이유죠 😎
