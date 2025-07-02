@@ -5,8 +5,8 @@ description: "GPT를 활용한 실손보험 보완자료 요청 대응 전략과
 author: LazyNomad
 tags: ["AI 민원작성", "실손보험", "보완요청", "약물 적응증", "GPT 활용"]
 slug: insurance-denial-gpt-claim-3
-date: 2025-07-03T11:00:00+09:00
-lastmod: 2025-07-03T11:00:00+09:00
+date: 2025-07-02T11:00:00+09:00
+lastmod: 2025-07-02T11:00:00+09:00
 draft: false
 ---
 
