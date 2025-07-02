@@ -1,75 +1,74 @@
 ---
-title: "How to Hack Agoda: Hotel Deals, Secret Tricks & Real Filters"
-description: "An advanced guide to finding the best Agoda hotel deals using real examples, filters, and behavior-based discounts."
-slug: agoda
-lang: en
-author: LazyNomad
+title: "Agoda Price Hacks 2025 — Save ₩70 k+ in Three Clicks"
+description: "Hands-on guide to beating Agoda’s price engine using CID links, scanner tools, KakaoPay & Payco promos."
+slug: agoda-price-hack
 date: 2025-07-02
-tags: ["Agoda", "hotel booking", "travel hacks", "digital nomad"]
+tags: ["Agoda", "hotel deal", "travel hacks", "KakaoPay", "Payco"]
+author: LazyNomad
+lang: en
 ---
 
-## 🛫 Prologue — Why Agoda Still Wins in Asia
-
-In 2025, Agoda remains the *underrated gem* of hotel booking platforms — especially for travel in Southeast Asia.
-
-✔️ Lower prices than Google or Booking.com (for Asia)  
-✔️ Personalized deals via app + browser combo  
-✔️ Surprising availability of local boutique hotels
-
-> “Once you learn to break Agoda’s interface, it becomes a goldmine.”
+> *Scenario:* Same Bangkok hotel, same date… three refreshes, three prices.  
+> I refused to overpay and cracked Agoda’s hidden rules. Result: **₩70 000 saved on a 3-night stay**. Here’s the exact routine.
 
 ---
 
-## 1️⃣ Filters That Actually Work
+## ✨ DaveKR’s 4-Step Routine
 
-Use these **exact filter combinations** to cut noise and expose real value.
+![Workflow](/images/agoda/price-hack-flow.png "Overall flow")
 
-| Filter Type | Setting |
-|-------------|---------|
-| Price | Sort by: Lowest Price + Rating ≥ 8.0 |
-| Property Type | Only select: Hotels, Guesthouses (Uncheck Hostels) |
-| Rating | Minimum ★3, Hide Unrated |
-| Cancellation | Free Cancellation only (if < 7 days to trip) |
-| Location | Use map tool + zoom into metro/transit hubs |
+| Step | Action | Why It Works |
+|------|--------|--------------|
+| 1 | **Google Incognito** → click organic Agoda link | Clears cookies ➜ baseline “CID” |
+| 2 | **KakaoPay × Agoda promo page** | 11 % app-only stackable discount |
+| 3 | **Payco × Agoda promo page** | Alt gateway: 7–10 % instant cut |
+| 4 | **Agoda Scanner**: paste any Agoda URL | Compares 20+ CID routes in 5 s |
 
-**Hidden Tip:** Many 3.5★+ hotels with new reviews are rebranded properties with deep discounts. Use this to your advantage.
-
----
-
-## 2️⃣ Behavior-Based Discounts (Yes, They Exist)
-
-Agoda tracks your behavior. Use it.
-
-🧠 **Log in, browse multiple times across 2–3 days.**  
-🧠 **Don’t book right away.** Let the algo bait you.  
-🧠 **Use mobile app for final booking (extra 5–10 % off)**
-
-> Try using two devices: desktop for research, phone for booking.
-
-Also: Agoda PointsMax lets you earn miles (e.g. Korean Air SKYPASS) — combine with credit card points stacking.
+> 3+ nights? This routine often saves **₩70 k–200 k**.
 
 ---
 
-## 3️⃣ Real Booking Example
+## 1️⃣ Baseline Price via Google Incognito
 
-2025.06.29 | Search: *Bangkok Sukhumvit Hotel* | Trip Dates: July 12–14
-
-| Hotel | Rating | Price/Night | Notes |
-|-------|--------|-------------|-------|
-| Hotel Icon Bangkok | 8.3 | $38 USD | Near BTS, pool, no deposit |
-| Citrus Suites | 8.6 | $45 USD | Bigger rooms, rooftop pool |
-| Aspira D'ANDORA | 8.1 | $32 USD | Smaller but clean & safe |
-
-✅ Final Pick: **Hotel Icon Bangkok**  
-Reason: Lowest price per value + Agoda Genius discount stacked
+![Google link](/images/agoda/google-first-click.png "First click result")  
+→ Price: **₩90 000/night**
 
 ---
 
-## 🧭 Final Thoughts
+## 2️⃣ KakaoPay Promo (11 %)
 
-Agoda isn’t just about booking.  
-It’s a system to be optimized.
+![KakaoPay banner](/images/agoda/kakaopay-banner.png "KakaoPay × Agoda")  
+→ Price drops to **₩66 000/night**
 
-> 🎯 Use filters like a scalpel. Behave like a bot. Reap rewards like a local.
+---
 
-Once you master it, you’ll rarely overpay again — especially in Asia.
+## 3️⃣ Payco Promo (7–10 %)
+
+![Payco banner](/images/agoda/payco-banner.png "Payco × Agoda")  
+Final offer hovers around KakaoPay level; sometimes beats it on flash sales.
+
+---
+
+## 4️⃣ Agoda Scanner = One-Glance CID Compare
+
+![Scanner](/images/agoda/scanner-result.png "CID compare")  
+Paste any Agoda link ➜ returns Google, Naver, KakaoPay, card-issuer CIDs side-by-side.
+
+---
+
+### 📌 One-Page Checklist
+
+| Stage | Key Point | Quick Check |
+|-------|-----------|-------------|
+| Google Incognito | No cookie, no “AD” CID | URL = `cid=PATTERN` |
+| KakaoPay | 11 % banner visible | Price < baseline –10 % |
+| Payco | 7–10 % instant cut | Compare net total |
+| Scanner | Look for oddball CID gap | Pick lowest + free-cancel |
+
+---
+
+## 🏁 Conclusion — “Lazy” Is Expensive
+
+> I nearly paid ₩90 k/night. Final bill: **₩66 k/night**.  
+> Next time you open Agoda, remember: *Incognito → KakaoPay → Payco → Scanner*. Your wallet will smile.
+
