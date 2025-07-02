@@ -1,9 +1,12 @@
 ---
-title: "AI로 만드는 보험금 부지급 대응 전략 3편"
-description: "GPT를 활용한 실손보험 보완자료 자동화 전략"
+title: "AI로 만드는 보험금 부지급 대응 전략 – 3편"
+description: "GPT를 활용한 실손보험 보완자료 요청 대응 및 자동화 전략"
 author: LazyNomad
-tags: [AI 민원작성, 실손보험 보완자료, 의료 소명서, 보험 보완 대응]
+tags: ["AI 민원작성", "보완자료 요청", "실손보험", "의무기록 요약", "GPT 자동화"]
 slug: insurance-denial-gpt-claim-3
+date: 2025-07-03T11:00:00+09:00
+lastmod: 2025-07-03T11:00:00+09:00
+draft: false
 ---
 
 ## 3편. 실손보험 보완 요청서 & 추가자료 자동화 전략
