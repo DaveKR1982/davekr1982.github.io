@@ -1,9 +1,12 @@
 ---
-title: "AI로 만드는 보험금 부지급 대응 전략 - 1편"
+title: "AI로 만드는 보험금 부지급 대응 전략 – 1편"
 description: "GPT를 활용한 실손보험 이의신청 실전 사례와 전문가급 대응 전략"
 author: LazyNomad
-tags: [AI 민원작성, 실손보험, 보험금 부지급, 이의신청, GPT 활용]
+tags: ["AI 민원작성", "실손보험", "보험금 부지급", "이의신청", "GPT 활용"]
 slug: insurance-denial-gpt-claim-1
+date: 2025-07-03T09:00:00+09:00
+lastmod: 2025-07-03T09:00:00+09:00
+draft: false
 ---
 
 ## 프롤로그
